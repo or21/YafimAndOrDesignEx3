@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using FacebookWrapper;
@@ -56,6 +57,11 @@ namespace AppUI
         private static string s_Bdate;
 
         /// <summary>
+        /// FeatueReceiver instance
+        /// </summary>
+        private readonly FeatureReceiver r_FeatureReceiver;
+
+        /// <summary>
         /// LoggedIn user
         /// </summary>
         private readonly User r_LoggedInUser;
@@ -63,7 +69,7 @@ namespace AppUI
         /// <summary>
         /// Feature builder
         /// </summary>
-        private readonly FeaturesBuilder r_FeaturesFactory = new FeaturesBuilder();
+        private readonly FeaturesBuilder r_FeaturesFactory = new FeaturesBuilder(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// List of threads
@@ -84,8 +90,24 @@ namespace AppUI
             loadPosts();
             FacebookService.s_CollectionLimit = 1000;
             s_Bdate = r_LoggedInUser.Birthday;
+
+            r_FeatureReceiver = new FeatureReceiver(r_FeaturesFactory);
+
+            setCommandsInUI();
         }
 
+        /// <summary>
+        /// Init commands
+        /// </summary>
+        private void setCommandsInUI()
+        {
+            r_FeatureReceiver.WhoWasBornOnMyBirthdayCommand(typeof(FormWhoWasBornOnMyBirthday));
+            r_FeatureReceiver.MostLikeablePhotosCommand(typeof(FormMostLikeablePhotos));
+        }
+
+        /// <summary>
+        /// Load facebook posts
+        /// </summary>
         private void loadPosts()
         {
             foreach (Post post in r_LoggedInUser.Posts)
@@ -288,7 +310,7 @@ namespace AppUI
                 thread.Join();
             }
 
-            r_FeaturesFactory.LoadFeature(typeof(FormMostLikeablePhotos));
+            r_FeatureReceiver.MostLikeablePhotos.Execute();
         }
 
         /// <summary>
@@ -298,7 +320,7 @@ namespace AppUI
         /// <param name="i_Event">The event</param>
         private void buttonGetCelebsBD_Click(object i_Sender, EventArgs i_Event)
         {
-            r_FeaturesFactory.LoadFeature(typeof(FormWhoWasBornOnMyBirthday));
+            r_FeatureReceiver.WhoWasBornOnMyBirthday.Execute();
         }
 
         /// <summary>

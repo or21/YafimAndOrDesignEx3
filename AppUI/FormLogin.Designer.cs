@@ -54,17 +54,12 @@ namespace AppUI
             // 
             // fbBlueButtonLogin
             // 
-            this.fbBlueButtonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(122)))), ((int)(((byte)(172)))));
-            this.fbBlueButtonLogin.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.fbBlueButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbBlueButtonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.fbBlueButtonLogin.ForeColor = System.Drawing.Color.White;
             this.fbBlueButtonLogin.Location = new System.Drawing.Point(143, 133);
             this.fbBlueButtonLogin.Name = "fbBlueButtonLogin";
             this.fbBlueButtonLogin.Size = new System.Drawing.Size(132, 49);
             this.fbBlueButtonLogin.TabIndex = 1;
             this.fbBlueButtonLogin.Text = "Login";
-            this.fbBlueButtonLogin.UseVisualStyleBackColor = false;
             this.fbBlueButtonLogin.Click += new System.EventHandler(this.fbBlueButtonLogin_Click);
             // 
             // MainWindow
