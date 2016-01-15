@@ -1,8 +1,9 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="FormMostLikeablePhotos.cs" company="A16_Ex03">
+// <copyright file="FormComparedPhotos.cs" company="A16_Ex03">
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace AppUI
     /// <summary>
     /// Get the N likeable pictures you have on facebook.
     /// </summary>
-    public partial class FormMostLikeablePhotos : FormFb
+    public partial class FormComparedPhotos : FormFb
     {
         /// <summary>
         /// List of the top N pictures
@@ -46,15 +47,16 @@ namespace AppUI
         /// <summary>
         /// List of most likeable photos
         /// </summary>
-        private List<Photo> m_TopLikeablePhotos;
+        private List<Photo> m_TopComparedPhotos;
 
         /// <summary>
         /// Initializes a new instance of the MostLikeablePhotosForm class.
         /// </summary>
-        public FormMostLikeablePhotos()
+        public FormComparedPhotos(ICompare i_Compare)
         {
             InitializeComponent();
             r_Util = Utils.Utils.Instance;
+            Compare = i_Compare;
 
             pictureBoxCurrentPic.LoadCompleted += pictureBoxCurrentPic_LoadCompleted;
 
@@ -63,28 +65,30 @@ namespace AppUI
 
             StartPosition = FormStartPosition.CenterScreen;
 
-            getTopLikeablePhotos();
-            loadImage(m_TopLikeablePhotos[0]);
+            pictureBoxIconFeature.Image = Compare.Picture();
+
+            getTopComparedPhotos();
+            loadImage(m_TopComparedPhotos[0]);
         }
 
         /// <summary>
         /// Gets the top likable photos 
         /// </summary>
-        private void getTopLikeablePhotos()
+        private void getTopComparedPhotos()
         {
             int width = 0;
             int height = 0;
 
-            m_TopLikeablePhotos = new List<Photo>(m_NumberOfPicturesToShow);
+            m_TopComparedPhotos = new List<Photo>(m_NumberOfPicturesToShow);
             if (m_AllPhotos.Count < m_NumberOfPicturesToShow)
             {
                 m_NumberOfPicturesToShow = m_AllPhotos.Count;
             }
 
-            m_TopLikeablePhotos = r_Util.FindMostLikablePhotos(m_NumberOfPicturesToShow, m_AllPhotos);
+            m_TopComparedPhotos = r_Util.FindComparedPhotos(m_NumberOfPicturesToShow, m_AllPhotos, Compare);
 
-            r_Util.SortPhotosByDescendingOrder(m_TopLikeablePhotos);
-            r_Util.GetWidthAndHeight(ref width, ref height, m_TopLikeablePhotos);
+            r_Util.SortPhotosByDescendingOrder(m_TopComparedPhotos, Compare);
+            r_Util.GetWidthAndHeight(ref width, ref height, m_TopComparedPhotos);
             Size = new Size(width, height + ButtonMargin);
         }
 
@@ -106,7 +110,7 @@ namespace AppUI
         private void buttonTopPicture_Click(object i_Sender, EventArgs i_Event)
         {
             m_IndexOfCurrentImage = 0;
-            loadImage(m_TopLikeablePhotos[m_IndexOfCurrentImage]);
+            loadImage(m_TopComparedPhotos[m_IndexOfCurrentImage]);
         }
 
         /// <summary>
@@ -117,7 +121,7 @@ namespace AppUI
         private void buttonNext_Click(object i_Sender, EventArgs i_Event)
         {
             m_IndexOfCurrentImage = r_Util.SetNextImage(m_IndexOfCurrentImage, m_NumberOfPicturesToShow);
-            loadImage(m_TopLikeablePhotos[m_IndexOfCurrentImage]);
+            loadImage(m_TopComparedPhotos[m_IndexOfCurrentImage]);
         }
 
         /// <summary>
@@ -128,7 +132,7 @@ namespace AppUI
         private void buttonBack_Click(object i_Sender, EventArgs i_Event)
         {
             m_IndexOfCurrentImage = r_Util.SetPrevImage(m_IndexOfCurrentImage, m_NumberOfPicturesToShow);
-            loadImage(m_TopLikeablePhotos[m_IndexOfCurrentImage]);
+            loadImage(m_TopComparedPhotos[m_IndexOfCurrentImage]);
         }
 
         /// <summary>
@@ -137,7 +141,7 @@ namespace AppUI
         /// <param name="i_Photo">Current photo</param>
         private void setNumberOfLikes(Photo i_Photo)
         {
-            labelNumberOfLikes.Text = string.Format("{0} Likes", i_Photo.LikedBy.Count);
+            labelNumberOfObjects.Text = string.Format("{0} {1}", Compare.CurrentCount(i_Photo), Compare.Name());
         }
 
         /// <summary>

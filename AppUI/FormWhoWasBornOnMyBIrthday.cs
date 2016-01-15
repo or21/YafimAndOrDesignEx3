@@ -3,6 +3,7 @@
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,9 +41,10 @@ namespace AppUI
         /// <summary>
         /// Initializes a new instance of the FormWhoWasBornOnMyBirthday class.
         /// </summary>
-        public FormWhoWasBornOnMyBirthday()
+        public FormWhoWasBornOnMyBirthday(ICompare i_Compare)
         {
             InitializeComponent();
+            Compare = i_Compare;
             r_Util = Utils.Utils.Instance;
             m_BirthdayDate = FormMainWindow.Birthday;
         }

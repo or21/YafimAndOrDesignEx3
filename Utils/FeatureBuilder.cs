@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="FeaturesBuilder.cs" company="A16_Ex03">
+// <copyright file="FeatureBuilder.cs" company="A16_Ex03">
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
@@ -12,14 +12,14 @@ namespace Utils
     /// <summary>
     /// This is the Factory class
     /// </summary>
-    public class FeaturesBuilder
+    public class FeatureBuilder
     {
         /// <summary>
         /// The current project assembly
         /// </summary>
         private Assembly m_Assembly;
 
-        public FeaturesBuilder(Assembly i_Assembly)
+        public FeatureBuilder(Assembly i_Assembly)
         {
             m_Assembly = i_Assembly;
         }
@@ -28,18 +28,24 @@ namespace Utils
         /// Loads feature according to type
         /// </summary>
         /// <param name="i_FeatureToLoad">Feature to load</param>
-        public void LoadFeature(Type i_FeatureToLoad)
+        /// <param name="i_Compare">Compare photos</param>
+        public void LoadFeature(Type i_FeatureToLoad, ICompare i_Compare)
         {
             foreach (Type type in m_Assembly.GetTypes())
             {
                 if (type.IsSubclassOf(typeof(FormFb)) && type.IsPublic && type == i_FeatureToLoad)
                 {
-                    ConstructorInfo constructorInfo = type.GetConstructor(new Type[] { });
+                    ConstructorInfo constructorInfo = type.GetConstructor(new Type[] { typeof(ICompare) });
                     if (constructorInfo != null)
                     {
-                        FormFb formToLoad = constructorInfo.Invoke(new object[] { }) as FormFb;
+                        FormFb formToLoad = constructorInfo.Invoke(new object[] { i_Compare }) as FormFb;
                         if (formToLoad != null)
                         {
+                            if (i_Compare != null)
+                            {
+                                formToLoad.Compare = i_Compare;
+                            }
+
                             formToLoad.ShowDialog();
                         }
 

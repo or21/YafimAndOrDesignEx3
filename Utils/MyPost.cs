@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿//-----------------------------------------------------------------------
+// <copyright file="MyPost.cs" company="A16_Ex03">
+// Yafim Vodkov 308973882 Or Brand id 302521034
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using FacebookWrapper.ObjectModel;
 
 namespace Utils
@@ -11,7 +14,7 @@ namespace Utils
     /// </summary>
     public class MyPost : Post
     {
-        private Post m_OriginalPost ;
+        private Post m_OriginalPost;
         private string m_DisplayMessage;
 
         public MyPost(string i_StatusWithoutPostObj)

@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿//-----------------------------------------------------------------------
+// <copyright file="MostLikeablePhotosCommand.cs" company="A16_Ex03">
+// Yafim Vodkov 308973882 Or Brand id 302521034
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 
 namespace Utils
 {

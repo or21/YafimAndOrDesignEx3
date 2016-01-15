@@ -63,7 +63,11 @@
     <Compile Include="ButtonFbWhite.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GetMostCommentatedPhotos.cs" />
+    <Compile Include="GetMostLikeablePhotos.cs" />
     <Compile Include="ICommand.cs" />
+    <Compile Include="ICompare.cs" />
+    <Compile Include="MostCommentatedPhotosCommand.cs" />
     <Compile Include="MostLikeablePhotosCommand.cs" />
     <Compile Include="MyPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

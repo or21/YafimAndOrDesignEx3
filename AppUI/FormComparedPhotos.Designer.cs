@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="FormMostLikeablePhotos.Designer.cs" company="A16_Ex02">
+// <copyright file="FormComparedPhotos.Designer.cs" company="A16_Ex02">
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
@@ -10,7 +10,7 @@ namespace AppUI
     /// <summary>
     /// Get the N likeable pictures you have on facebook.
     /// </summary>
-    public partial class FormMostLikeablePhotos
+    public partial class FormComparedPhotos
     {
         /// <summary>
         /// Required designer variable.
@@ -39,16 +39,16 @@ namespace AppUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMostLikeablePhotos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormComparedPhotos));
             this.buttonNext = new Utils.ButtonFbBlue();
             this.buttonTopPicture = new Utils.ButtonFbBlue();
             this.buttonBack = new Utils.ButtonFbBlue();
             this.buttonExit = new Utils.ButtonFbWhite();
-            this.labelNumberOfLikes = new System.Windows.Forms.Label();
+            this.labelNumberOfObjects = new System.Windows.Forms.Label();
             this.pictureBoxCurrentPic = new System.Windows.Forms.PictureBox();
-            this.pictureBoxLike = new System.Windows.Forms.PictureBox();
+            this.pictureBoxIconFeature = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentPic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLike)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconFeature)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNext
@@ -99,6 +99,7 @@ namespace AppUI
             // buttonExit
             // 
             this.buttonExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
@@ -110,17 +111,16 @@ namespace AppUI
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // labelNumberOfLikes
+            // labelNumberOfObjects
             // 
-            this.labelNumberOfLikes.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.labelNumberOfLikes.AutoSize = true;
-            this.labelNumberOfLikes.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelNumberOfLikes.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelNumberOfLikes.Location = new System.Drawing.Point(216, 387);
-            this.labelNumberOfLikes.Name = "labelNumberOfLikes";
-            this.labelNumberOfLikes.Size = new System.Drawing.Size(70, 29);
-            this.labelNumberOfLikes.TabIndex = 38;
-            this.labelNumberOfLikes.Text = "Likes";
+            this.labelNumberOfObjects.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelNumberOfObjects.AutoSize = true;
+            this.labelNumberOfObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelNumberOfObjects.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.labelNumberOfObjects.Location = new System.Drawing.Point(202, 387);
+            this.labelNumberOfObjects.Name = "labelNumberOfObjects";
+            this.labelNumberOfObjects.Size = new System.Drawing.Size(0, 29);
+            this.labelNumberOfObjects.TabIndex = 38;
             // 
             // pictureBoxCurrentPic
             // 
@@ -134,24 +134,24 @@ namespace AppUI
             this.pictureBoxCurrentPic.TabIndex = 40;
             this.pictureBoxCurrentPic.TabStop = false;
             // 
-            // pictureBoxLike
+            // pictureBoxIconFeature
             // 
-            this.pictureBoxLike.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBoxLike.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLike.Image")));
-            this.pictureBoxLike.Location = new System.Drawing.Point(167, 387);
-            this.pictureBoxLike.Name = "pictureBoxLike";
-            this.pictureBoxLike.Size = new System.Drawing.Size(41, 30);
-            this.pictureBoxLike.TabIndex = 41;
-            this.pictureBoxLike.TabStop = false;
+            this.pictureBoxIconFeature.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBoxIconFeature.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxIconFeature.Image")));
+            this.pictureBoxIconFeature.Location = new System.Drawing.Point(140, 386);
+            this.pictureBoxIconFeature.Name = "pictureBoxIconFeature";
+            this.pictureBoxIconFeature.Size = new System.Drawing.Size(41, 30);
+            this.pictureBoxIconFeature.TabIndex = 41;
+            this.pictureBoxIconFeature.TabStop = false;
             // 
-            // MostLikeablePhotosForm
+            // FormComparedPhotos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(469, 459);
-            this.Controls.Add(this.pictureBoxLike);
-            this.Controls.Add(this.labelNumberOfLikes);
+            this.Controls.Add(this.pictureBoxIconFeature);
+            this.Controls.Add(this.labelNumberOfObjects);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonTopPicture);
             this.Controls.Add(this.buttonBack);
@@ -160,7 +160,7 @@ namespace AppUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "MostLikeablePhotosForm";
+            this.Name = "FormComparedPhotos";
             this.Text = "MostLikeablePhotosForm";
             this.Load += new System.EventHandler(this.buttonTopPicture_Click);
             this.Controls.SetChildIndex(this.pictureBoxCurrentPic, 0);
@@ -168,10 +168,10 @@ namespace AppUI
             this.Controls.SetChildIndex(this.buttonBack, 0);
             this.Controls.SetChildIndex(this.buttonTopPicture, 0);
             this.Controls.SetChildIndex(this.buttonNext, 0);
-            this.Controls.SetChildIndex(this.labelNumberOfLikes, 0);
-            this.Controls.SetChildIndex(this.pictureBoxLike, 0);
+            this.Controls.SetChildIndex(this.labelNumberOfObjects, 0);
+            this.Controls.SetChildIndex(this.pictureBoxIconFeature, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentPic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLike)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconFeature)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +201,7 @@ namespace AppUI
         /// <summary>
         /// Label of Number of likes
         /// </summary>
-        private Label labelNumberOfLikes;
+        private Label labelNumberOfObjects;
 
         /// <summary>
         /// Show current photo
@@ -211,6 +211,6 @@ namespace AppUI
         /// <summary>
         /// Image of facebook like
         /// </summary>
-        private PictureBox pictureBoxLike;
+        private PictureBox pictureBoxIconFeature;
     }
 }

@@ -58,6 +58,7 @@ namespace AppUI
             this.postTextBox = new System.Windows.Forms.TextBox();
             this.labePostToFB = new System.Windows.Forms.Label();
             this.labelUpdateLocalFeed = new System.Windows.Forms.Label();
+            this.buttonFbBlueMostComments = new Utils.ButtonFbBlue();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -104,38 +105,58 @@ namespace AppUI
             // 
             // buttonGetMostPhotos
             // 
-            this.buttonGetMostPhotos.Location = new System.Drawing.Point(104, 446);
+            this.buttonGetMostPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(122)))), ((int)(((byte)(172)))));
+            this.buttonGetMostPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGetMostPhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonGetMostPhotos.ForeColor = System.Drawing.Color.White;
+            this.buttonGetMostPhotos.Location = new System.Drawing.Point(31, 446);
             this.buttonGetMostPhotos.Name = "buttonGetMostPhotos";
-            this.buttonGetMostPhotos.Size = new System.Drawing.Size(196, 23);
+            this.buttonGetMostPhotos.Size = new System.Drawing.Size(204, 23);
             this.buttonGetMostPhotos.TabIndex = 9;
-            this.buttonGetMostPhotos.Text = "Get Most 5 Likeable Photos";
+            this.buttonGetMostPhotos.Text = "Get 5 Most Likeable Photos";
+            this.buttonGetMostPhotos.UseVisualStyleBackColor = false;
             this.buttonGetMostPhotos.Click += new System.EventHandler(this.buttonTopLikeablePhotos_Click);
             // 
             // buttonGetCelebsBD
             // 
-            this.buttonGetCelebsBD.Location = new System.Drawing.Point(478, 446);
+            this.buttonGetCelebsBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(122)))), ((int)(((byte)(172)))));
+            this.buttonGetCelebsBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGetCelebsBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonGetCelebsBD.ForeColor = System.Drawing.Color.White;
+            this.buttonGetCelebsBD.Location = new System.Drawing.Point(536, 446);
             this.buttonGetCelebsBD.Name = "buttonGetCelebsBD";
             this.buttonGetCelebsBD.Size = new System.Drawing.Size(203, 23);
             this.buttonGetCelebsBD.TabIndex = 10;
             this.buttonGetCelebsBD.Text = "WhoWasBornOnMyBirthday was born on my Birthday";
+            this.buttonGetCelebsBD.UseVisualStyleBackColor = false;
             this.buttonGetCelebsBD.Click += new System.EventHandler(this.buttonGetCelebsBD_Click);
             // 
             // buttonPost
             // 
+            this.buttonPost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(122)))), ((int)(((byte)(172)))));
+            this.buttonPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonPost.ForeColor = System.Drawing.Color.White;
             this.buttonPost.Location = new System.Drawing.Point(544, 48);
             this.buttonPost.Name = "buttonPost";
             this.buttonPost.Size = new System.Drawing.Size(75, 23);
             this.buttonPost.TabIndex = 12;
             this.buttonPost.Text = "Post";
+            this.buttonPost.UseVisualStyleBackColor = false;
             this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
             // 
             // buttonLogout
             // 
+            this.buttonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonLogout.ForeColor = System.Drawing.Color.Black;
             this.buttonLogout.Location = new System.Drawing.Point(664, 48);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(75, 23);
             this.buttonLogout.TabIndex = 13;
             this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // listBoxFeed
@@ -235,11 +256,26 @@ namespace AppUI
             this.labelUpdateLocalFeed.TabIndex = 23;
             this.labelUpdateLocalFeed.Text = "Update Local Feed";
             // 
+            // buttonFbBlueMostComments
+            // 
+            this.buttonFbBlueMostComments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(122)))), ((int)(((byte)(172)))));
+            this.buttonFbBlueMostComments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFbBlueMostComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonFbBlueMostComments.ForeColor = System.Drawing.Color.White;
+            this.buttonFbBlueMostComments.Location = new System.Drawing.Point(241, 446);
+            this.buttonFbBlueMostComments.Name = "buttonFbBlueMostComments";
+            this.buttonFbBlueMostComments.Size = new System.Drawing.Size(207, 23);
+            this.buttonFbBlueMostComments.TabIndex = 24;
+            this.buttonFbBlueMostComments.Text = "Get 5 Most Commentated Photos";
+            this.buttonFbBlueMostComments.UseVisualStyleBackColor = false;
+            this.buttonFbBlueMostComments.Click += new System.EventHandler(this.buttonFbBlueMostComments_Click);
+            // 
             // FormMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 490);
+            this.Controls.Add(this.buttonFbBlueMostComments);
             this.Controls.Add(this.labelUpdateLocalFeed);
             this.Controls.Add(this.labePostToFB);
             this.Controls.Add(this.postTextBox);
@@ -283,6 +319,7 @@ namespace AppUI
             this.Controls.SetChildIndex(this.postTextBox, 0);
             this.Controls.SetChildIndex(this.labePostToFB, 0);
             this.Controls.SetChildIndex(this.labelUpdateLocalFeed, 0);
+            this.Controls.SetChildIndex(this.buttonFbBlueMostComments, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -312,5 +349,6 @@ namespace AppUI
         private System.Windows.Forms.TextBox postTextBox;
         private System.Windows.Forms.Label labePostToFB;
         private System.Windows.Forms.Label labelUpdateLocalFeed;
+        private Utils.ButtonFbBlue buttonFbBlueMostComments;
     }
 }
