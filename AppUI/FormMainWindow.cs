@@ -17,7 +17,7 @@ using Utils;
 namespace AppUI
 {
     /// <summary>
-    /// UI of the application
+    /// UI of the application.
     /// </summary>
     public partial class FormMainWindow : FormFb
     {
