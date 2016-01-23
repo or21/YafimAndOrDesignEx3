@@ -8,6 +8,9 @@ using System;
 
 namespace Utils
 {
+    /// <summary>
+    /// Most commentated photos command
+    /// </summary>
     public class MostCommentatedPhotosCommand : ICommand
     {
         /// <summary>
@@ -16,7 +19,7 @@ namespace Utils
         private readonly Action r_Action;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the MostCommentatedPhotosCommand class.
         /// </summary>
         /// <param name="i_Action">The action to perform</param>
         public MostCommentatedPhotosCommand(Action i_Action)

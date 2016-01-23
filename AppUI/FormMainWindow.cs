@@ -57,7 +57,7 @@ namespace AppUI
         private static string s_Bdate;
 
         /// <summary>
-        /// FeatueReceiver instance
+        /// FeatureReceiver instance
         /// </summary>
         private readonly FeatureReceiver r_FeatureReceiver;
 
@@ -76,10 +76,13 @@ namespace AppUI
         /// </summary>
         private readonly List<Thread> r_Threads = new List<Thread>();
 
+        /// <summary>
+        /// My posts on facebook
+        /// </summary>
         private List<MyPost> m_MyPosts; 
 
         /// <summary>
-        /// Initializes a new instance of the MainWindow class.
+        /// Initializes a new instance of the FormMainWindow class.
         /// </summary>
         /// <param name="i_UserData">The user facebook data</param>
         public FormMainWindow(LoginResult i_UserData)
@@ -97,7 +100,7 @@ namespace AppUI
         }
 
         /// <summary>
-        /// Init commands
+        /// Initialize commands
         /// </summary>
         private void setCommandsInUi()
         {
@@ -120,7 +123,7 @@ namespace AppUI
         /// <summary>
         /// Loads the user info on different thread
         /// </summary>
-        /// <param name="i_Event"></param>
+        /// <param name="i_Event">the event</param>
         protected override void OnLoad(EventArgs i_Event) 
         {
             base.OnLoad(i_Event);
@@ -318,8 +321,8 @@ namespace AppUI
         /// <summary>
         /// Show 5 most commentated photos
         /// </summary>
-        /// <param name="i_Sender"></param>
-        /// <param name="i_Event"></param>
+        /// <param name="i_Sender">the sender</param>
+        /// <param name="i_Event">the event</param>
         private void buttonFbBlueMostComments_Click(object i_Sender, EventArgs i_Event)
         {
             MessageBox.Show(k_WaitMessage);

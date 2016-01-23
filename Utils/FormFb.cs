@@ -50,7 +50,7 @@ namespace Utils
         }
 
         /// <summary>
-        /// Compare between photos
+        /// Gets or sets Comparer
         /// </summary>
         public ICompare Compare { get; set; }
 
@@ -63,7 +63,7 @@ namespace Utils
         }
 
         /// <summary>
-        /// Initializes a new instance of the FbForm class.
+        /// Initializes a new instance of the FormFb class.
         /// </summary>
         public FormFb()
         {

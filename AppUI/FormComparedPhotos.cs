@@ -50,8 +50,9 @@ namespace AppUI
         private List<Photo> m_TopComparedPhotos;
 
         /// <summary>
-        /// Initializes a new instance of the MostLikeablePhotosForm class.
+        /// Initializes a new instance of the FormComparedPhotos class.
         /// </summary>
+        /// <param name="i_Compare">Strategy comparer</param>
         public FormComparedPhotos(ICompare i_Compare)
         {
             InitializeComponent();

@@ -19,6 +19,10 @@ namespace Utils
         /// </summary>
         private Assembly m_Assembly;
 
+        /// <summary>
+        /// Initializes a new instance of the FeatureBuilder class.
+        /// </summary>
+        /// <param name="i_Assembly">Assemble information</param>
         public FeatureBuilder(Assembly i_Assembly)
         {
             m_Assembly = i_Assembly;

@@ -19,7 +19,7 @@ namespace Utils
         private readonly Action r_Action;
 
         /// <summary>
-        /// Initializes a new instnace of the WhoWasBornOnMyBirthdayCommand class.
+        /// Initializes a new instance of the WhoWasBornOnMyBirthdayCommand class.
         /// </summary>
         /// <param name="i_Action">The action to perform</param>
         public WhoWasBornOnMyBirthdayCommand(Action i_Action)

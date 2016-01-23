@@ -21,6 +21,9 @@ namespace Utils
             SetUniqueProperties();
         }
 
+        /// <summary>
+        /// Set unique properties
+        /// </summary>
         public override void SetUniqueProperties()
         {
             ForeColor = Color.Black;

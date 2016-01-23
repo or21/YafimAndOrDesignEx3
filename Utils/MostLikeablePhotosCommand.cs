@@ -8,6 +8,9 @@ using System;
 
 namespace Utils
 {
+    /// <summary>
+    /// Most likeable photos command
+    /// </summary>
     public class MostLikeablePhotosCommand : ICommand
     {
         /// <summary>
@@ -16,7 +19,7 @@ namespace Utils
         private readonly Action r_Action;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the MostLikeablePhotosCommand class.
         /// </summary>
         /// <param name="i_Action">The action to perform</param>
         public MostLikeablePhotosCommand(Action i_Action)

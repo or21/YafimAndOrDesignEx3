@@ -6,8 +6,14 @@
 
 namespace Utils
 {
+    /// <summary>
+    /// ICommand interface
+    /// </summary>
     internal interface ICommand
     {
+        /// <summary>
+        /// The execute command 
+        /// </summary>
         void Execute();
     }
 }

@@ -41,6 +41,7 @@ namespace AppUI
         /// <summary>
         /// Initializes a new instance of the FormWhoWasBornOnMyBirthday class.
         /// </summary>
+        /// <param name="i_Compare">Strategy comparer</param>
         public FormWhoWasBornOnMyBirthday(ICompare i_Compare)
         {
             InitializeComponent();
