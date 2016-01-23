@@ -61,11 +61,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="FormMostLikeablePhotos.cs">
+    <Compile Include="FormComparedPhotos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMostLikeablePhotos.Designer.cs">
-      <DependentUpon>FormMostLikeablePhotos.cs</DependentUpon>
+    <Compile Include="FormComparedPhotos.Designer.cs">
+      <DependentUpon>FormComparedPhotos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMainWindow.cs">
       <SubType>Form</SubType>
@@ -81,8 +81,8 @@
     <Compile Include="FormWhoWasBornOnMyBIrthday.Designer.cs">
       <DependentUpon>FormWhoWasBornOnMyBIrthday.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormMostLikeablePhotos.resx">
-      <DependentUpon>FormMostLikeablePhotos.cs</DependentUpon>
+    <EmbeddedResource Include="FormComparedPhotos.resx">
+      <DependentUpon>FormComparedPhotos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>

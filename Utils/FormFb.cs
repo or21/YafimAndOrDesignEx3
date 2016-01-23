@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="FormFb.cs" company="A16_Ex02">
+// <copyright file="FormFb.cs" company="A16_Ex03">
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
@@ -48,6 +48,11 @@ namespace Utils
             get { return m_ButtonMargin; }
             set { this.m_ButtonMargin = value; }
         }
+
+        /// <summary>
+        /// Compare between photos
+        /// </summary>
+        public ICompare Compare { get; set; }
 
         /// <summary>
         /// Gets Label header

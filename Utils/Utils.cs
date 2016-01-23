@@ -320,10 +320,11 @@ namespace Utils
         /// Sort list of photos by number of likes 
         /// </summary>
         /// <param name="io_ListOfPhotos">List of photos</param>
-        public void SortPhotosByDescendingOrder(List<Photo> io_ListOfPhotos)
+        /// <param name="i_Compare"></param>
+        public void SortPhotosByDescendingOrder(List<Photo> io_ListOfPhotos, ICompare i_Compare)
         {
             io_ListOfPhotos.Sort((i_NumberOfLikesPhotoOne, i_NumberOfLikesPhotoTwo) =>
-                i_NumberOfLikesPhotoOne.LikedBy.Count().CompareTo(i_NumberOfLikesPhotoTwo.LikedBy.Count()));
+                i_Compare.Sorted(i_NumberOfLikesPhotoOne, i_NumberOfLikesPhotoTwo));
             io_ListOfPhotos.Reverse();
         }
 
@@ -332,8 +333,9 @@ namespace Utils
         /// </summary>
         /// <param name="i_NumberOfPhotosToShow">number of photos to show</param>
         /// <param name="i_ListOfPhotos">List of photos</param>
+        /// <param name="i_Compare">Compare</param>
         /// <returns>Listed Number of photos to show</returns>
-        public List<Photo> FindMostLikablePhotos(int i_NumberOfPhotosToShow, List<Photo> i_ListOfPhotos)
+        public List<Photo> FindComparedPhotos(int i_NumberOfPhotosToShow, List<Photo> i_ListOfPhotos, ICompare i_Compare)
         {
             List<Photo> topLikeablePhotos = new List<Photo>(i_NumberOfPhotosToShow);
 
@@ -344,13 +346,13 @@ namespace Utils
                 if (topLikeablePhotos.Count != topLikeablePhotos.Capacity)
                 {
                     topLikeablePhotos.Add(photo);
-                    minPhoto = findMinInTopLikable(topLikeablePhotos);
+                    minPhoto = findMinInTopLikable(topLikeablePhotos, i_Compare);
                 }
                 else
                 {
-                    if (photo.LikedBy.Count >= minPhoto.LikedBy.Count)
+                    if (i_Compare.Decide(photo, minPhoto))
                     {
-                        addPhotoToList(photo, ref minPhoto, topLikeablePhotos);
+                        addPhotoToList(photo, ref minPhoto, topLikeablePhotos, i_Compare);
                     }
                 }
             }
@@ -363,26 +365,28 @@ namespace Utils
         /// </summary>
         /// <param name="i_Photo">Photo to add</param>
         /// <param name="io_MinPhoto">Photo with minimum likes</param>
-        /// <param name="i_MostLikeablePhotos">Most liked photos</param>
-        private void addPhotoToList(Photo i_Photo, ref Photo io_MinPhoto, List<Photo> i_MostLikeablePhotos)
+        /// <param name="i_MostComparedPhotos">Most liked photos</param>
+        /// <param name="i_Compare"></param>
+        private void addPhotoToList(Photo i_Photo, ref Photo io_MinPhoto, List<Photo> i_MostComparedPhotos, ICompare i_Compare)
         {
-            i_MostLikeablePhotos.Remove(io_MinPhoto);
-            i_MostLikeablePhotos.Add(i_Photo);
-            io_MinPhoto = findMinInTopLikable(i_MostLikeablePhotos);
+            i_MostComparedPhotos.Remove(io_MinPhoto);
+            i_MostComparedPhotos.Add(i_Photo);
+            io_MinPhoto = findMinInTopLikable(i_MostComparedPhotos, i_Compare);
         }
 
         /// <summary>
         /// Find the picture with the minimum likes
         /// </summary>
         /// <param name="i_MostLikeablePhotos">Most likeable picture</param>
+        /// <param name="i_Compare"></param>
         /// <returns>The photo with the minimum likes</returns>
-        private Photo findMinInTopLikable(List<Photo> i_MostLikeablePhotos)
+        private Photo findMinInTopLikable(List<Photo> i_MostLikeablePhotos, ICompare i_Compare)
         {
             Photo minPhoto = i_MostLikeablePhotos[0];
 
             foreach (Photo photo in i_MostLikeablePhotos)
             {
-                if (photo.LikedBy.Count <= minPhoto.LikedBy.Count)
+                if (i_Compare.Decide(minPhoto, photo))
                 {
                     minPhoto = photo;
                 }

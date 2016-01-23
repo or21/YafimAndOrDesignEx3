@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="FeatureReceiver.cs" company="A16_Ex03">
+// Yafim Vodkov 308973882 Or Brand id 302521034
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 
 namespace Utils
 {
@@ -10,7 +16,7 @@ namespace Utils
         /// <summary>
         /// Feature builder
         /// </summary>
-        private readonly FeaturesBuilder m_FeaturesFactory;
+        private readonly FeatureBuilder m_FeaturesFactory;
 
         /// <summary>
         /// 
@@ -19,7 +25,9 @@ namespace Utils
 
         public MostLikeablePhotosCommand MostLikeablePhotos { get; private set; }
 
-        public FeatureReceiver(FeaturesBuilder i_FeaturesFactory)
+        public MostCommentatedPhotosCommand MostCommentatedPhotos { get; private set; }
+
+        public FeatureReceiver(FeatureBuilder i_FeaturesFactory)
         {
             m_FeaturesFactory = i_FeaturesFactory;
         }
@@ -30,12 +38,17 @@ namespace Utils
         /// <param name="i_Type">The type</param>
         public void WhoWasBornOnMyBirthdayCommand(Type i_Type)
         {
-            WhoWasBornOnMyBirthday = new WhoWasBornOnMyBirthdayCommand(() => m_FeaturesFactory.LoadFeature(i_Type));
+            WhoWasBornOnMyBirthday = new WhoWasBornOnMyBirthdayCommand(() => m_FeaturesFactory.LoadFeature(i_Type, null));
         }
 
-        public void MostLikeablePhotosCommand(Type i_Type)
+        public void MostLikeablePhotosCommand(Type i_Type, ICompare i_Compare)
         {
-            MostLikeablePhotos = new MostLikeablePhotosCommand(() => m_FeaturesFactory.LoadFeature(i_Type));
+            MostLikeablePhotos = new MostLikeablePhotosCommand(() => m_FeaturesFactory.LoadFeature(i_Type, i_Compare));
+        }
+
+        public void MostCommentatedPhotosCommand(Type i_Type, ICompare i_Compare)
+        {
+            MostCommentatedPhotos = new MostCommentatedPhotosCommand(() => m_FeaturesFactory.LoadFeature(i_Type, i_Compare));
         }
     }
 }

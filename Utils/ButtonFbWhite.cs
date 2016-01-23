@@ -10,7 +10,7 @@ namespace Utils
     /// <summary>
     /// Facebook UI white button
     /// </summary>
-    public sealed class ButtonFbWhite : ButtonFBTemplate
+    public sealed class ButtonFbWhite : ButtonFbTemplate
     {
         /// <summary>
         /// Initializes a new instance of the ButtonFbWhite class.

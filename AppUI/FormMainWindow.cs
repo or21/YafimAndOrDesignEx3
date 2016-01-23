@@ -69,7 +69,7 @@ namespace AppUI
         /// <summary>
         /// Feature builder
         /// </summary>
-        private readonly FeaturesBuilder r_FeaturesFactory = new FeaturesBuilder(Assembly.GetExecutingAssembly());
+        private readonly FeatureBuilder r_FeaturesFactory = new FeatureBuilder(Assembly.GetExecutingAssembly());
 
         /// <summary>
         /// List of threads
@@ -93,16 +93,17 @@ namespace AppUI
 
             r_FeatureReceiver = new FeatureReceiver(r_FeaturesFactory);
 
-            setCommandsInUI();
+            setCommandsInUi();
         }
 
         /// <summary>
         /// Init commands
         /// </summary>
-        private void setCommandsInUI()
+        private void setCommandsInUi()
         {
             r_FeatureReceiver.WhoWasBornOnMyBirthdayCommand(typeof(FormWhoWasBornOnMyBirthday));
-            r_FeatureReceiver.MostLikeablePhotosCommand(typeof(FormMostLikeablePhotos));
+            r_FeatureReceiver.MostLikeablePhotosCommand(typeof(FormComparedPhotos), new GetMostLikeablePhotos());
+            r_FeatureReceiver.MostCommentatedPhotosCommand(typeof(FormComparedPhotos), new GetMostCommentatedPhotos());
         }
 
         /// <summary>
@@ -232,6 +233,7 @@ namespace AppUI
             if (s_ListOfPhotos.Count == 0)
             {
                 buttonGetMostPhotos.Enabled = false;
+                buttonFbBlueMostComments.Enabled = false;
             }
         }
 
@@ -279,11 +281,11 @@ namespace AppUI
         /// <param name="i_Event">The event</param>
         private void buttonPost_Click(object i_Sender, EventArgs i_Event)
         {
-            //Status postedStatus = r_LoggedInUser.PostStatus(displayMessageTextBox.Text);
+            Status postedStatus = r_LoggedInUser.PostStatus(postTextBox.Text);
             MyPost newPost = new MyPost(postTextBox.Text);
             m_MyPosts.Add(newPost);
             listBoxFeed.Invoke(new Action(() => listBoxFeed.Refresh()));
-            MessageBox.Show(string.Format(@"Status: {0} Posted", postTextBox.Text));
+            MessageBox.Show(string.Format(@"Status: {0} Posted", postedStatus.Message));
         }
 
         /// <summary>
@@ -297,7 +299,7 @@ namespace AppUI
         }
         
         /// <summary>
-        /// Show 5 most likeable pictures 
+        /// Show 5 most likeable photos 
         /// </summary>
         /// <param name="i_Sender">Object sender</param>
         /// <param name="i_Event">The event</param>
@@ -311,6 +313,23 @@ namespace AppUI
             }
 
             r_FeatureReceiver.MostLikeablePhotos.Execute();
+        }
+
+        /// <summary>
+        /// Show 5 most commentated photos
+        /// </summary>
+        /// <param name="i_Sender"></param>
+        /// <param name="i_Event"></param>
+        private void buttonFbBlueMostComments_Click(object i_Sender, EventArgs i_Event)
+        {
+            MessageBox.Show(k_WaitMessage);
+
+            foreach (Thread thread in r_Threads)
+            {
+                thread.Join();
+            }
+
+            r_FeatureReceiver.MostCommentatedPhotos.Execute();
         }
 
         /// <summary>

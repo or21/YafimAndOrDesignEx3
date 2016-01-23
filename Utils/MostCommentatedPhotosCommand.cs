@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="WhoWasBornOnMyBirthdayCommand.cs" company="A16_Ex03">
+// <copyright file="MostCommentatedPhotosCommand.cs" company="A16_Ex03">
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
@@ -8,10 +8,7 @@ using System;
 
 namespace Utils
 {
-    /// <summary>
-    /// This is the ConcreteCommand class
-    /// </summary>
-    public class WhoWasBornOnMyBirthdayCommand : ICommand
+    public class MostCommentatedPhotosCommand : ICommand
     {
         /// <summary>
         /// The action to perform
@@ -19,10 +16,10 @@ namespace Utils
         private readonly Action r_Action;
 
         /// <summary>
-        /// Initializes a new instnace of the WhoWasBornOnMyBirthdayCommand class.
+        /// 
         /// </summary>
         /// <param name="i_Action">The action to perform</param>
-        public WhoWasBornOnMyBirthdayCommand(Action i_Action)
+        public MostCommentatedPhotosCommand(Action i_Action)
         {
             r_Action = i_Action;
         }

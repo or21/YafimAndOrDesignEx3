@@ -1,8 +1,9 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ButtonFbBlue.cs" company="A16_Ex02">
+// <copyright file="ButtonFbBlue.cs" company="A16_Ex03">
 // Yafim Vodkov 308973882 Or Brand id 302521034
 // </copyright>
 //-----------------------------------------------------------------------
+
 using System.Drawing;
 
 namespace Utils
@@ -10,7 +11,7 @@ namespace Utils
     /// <summary>
     /// Facebook UI blue button
     /// </summary>
-    public sealed class ButtonFbBlue : ButtonFBTemplate
+    public sealed class ButtonFbBlue : ButtonFbTemplate
     {
         /// <summary>
         /// Initializes a new instance of the ButtonFbBlue class.
