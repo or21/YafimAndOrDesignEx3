@@ -281,11 +281,11 @@ namespace AppUI
         /// <param name="i_Event">The event</param>
         private void buttonPost_Click(object i_Sender, EventArgs i_Event)
         {
-            //Status postedStatus = r_LoggedInUser.PostStatus(displayMessageTextBox.Text);
+            Status postedStatus = r_LoggedInUser.PostStatus(postTextBox.Text);
             MyPost newPost = new MyPost(postTextBox.Text);
             m_MyPosts.Add(newPost);
             listBoxFeed.Invoke(new Action(() => listBoxFeed.Refresh()));
-            MessageBox.Show(string.Format(@"Status: {0} Posted", postTextBox.Text));
+            MessageBox.Show(string.Format(@"Status: {0} Posted", postedStatus.Message));
         }
 
         /// <summary>

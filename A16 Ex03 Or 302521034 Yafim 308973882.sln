@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84B1B781-D6BF-4745-B5DE-ADB5E2087309}"
 	ProjectSection(SolutionItems) = preProject
 		DP_Ex03_TemplateForStudents.docx = DP_Ex03_TemplateForStudents.docx
+		Exercise-Checking-Report.txt = Exercise-Checking-Report.txt
 	EndProjectSection
 EndProject
 Global
