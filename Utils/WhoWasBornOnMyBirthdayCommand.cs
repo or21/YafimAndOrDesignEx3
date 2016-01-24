@@ -28,7 +28,7 @@ namespace Utils
         }
 
         /// <summary>
-        /// Execute action
+        /// Execute action.
         /// </summary>
         public void Execute()
         {
